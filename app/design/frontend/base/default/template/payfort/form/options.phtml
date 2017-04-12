@@ -1,0 +1,41 @@
+<?php 
+    $sadadEnabled   = Mage::getStoreConfig('payment/payfort/sadad');
+    $napsEnabled    = Mage::getStoreConfig('payment/payfort/naps');
+    $cardEnabled    = Mage::getStoreConfig('payment/payfort/credit_card');
+?>
+
+<?php if ($sadadEnabled || $napsEnabled):?>
+
+    <?php if ($sadadEnabled):?>
+    <dt>
+    <input id="p_method_sadad" value="payfort" type="radio" name="payment[method]" title="SADAD" onclick="jQuery.ajax({url:'<?php echo Mage::getBaseUrl();?>payfort/payment/setOption/?payfort_option=SADAD'});" class="radio" autocomplete="off">
+    <label onclick="jQuery(this).prev().click();" for=""><?php echo Mage::getStoreConfig('payment/payfort/sadad_title')?></label>
+    </dt>
+    <?php endif;?>
+    
+    <?php if ($napsEnabled):?>
+    <dt>
+    <input id="p_method_naps" value="payfort" type="radio" name="payment[method]" title="NAPS" onclick="jQuery.ajax({url:'<?php echo Mage::getBaseUrl();?>payfort/payment/setOption/?payfort_option=NAPS'});" class="radio" autocomplete="off">
+    <label onclick="jQuery(this).prev().click();" for=""><?php echo Mage::getStoreConfig('payment/payfort/naps_title')?></label>
+    </dt>
+    <?php endif;?>
+<?php endif;?>
+
+<script>
+    //<![CDATA[
+    jQuery(document).ready(function(){
+        setTimeout(function(){jQuery('#p_method_sadad, #p_method_naps').removeAttr('disabled');},500);
+        jQuery('input[type=radio]').click(function(){
+            /*if (jQuery(this).attr('id') != 'p_method_sadad' && jQuery(this).attr('id') != 'p_method_naps'){
+               jQuery('#p_method_sadad, #p_method_naps').removeAttr('checked');
+            }*/
+            if (jQuery(this).attr('id') == 'p_method_payfort'){
+               jQuery.ajax({url:'<?php echo Mage::getBaseUrl();?>payfort/payment/setOption/?payfort_option='});
+            }
+        });    
+        <?php if (!$cardEnabled):?>
+            jQuery('#dt_method_payfort').remove();
+        <?php endif;?>
+    });
+    //]]>
+</script>

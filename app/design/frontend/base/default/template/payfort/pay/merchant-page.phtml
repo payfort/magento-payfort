@@ -1,0 +1,26 @@
+<?php
+$pfHelper = Mage::helper("payfort/data");
+$gatewayParams = $this->getData('gatewayParams');
+$gatewayUrl    = $this->getData('gatewayUrl');
+?>
+
+<div class="pf-iframe-background" id="div-pf-iframe" style="display:none">
+    <div class="pf-iframe-container">
+        <span class="pf-close-container">
+            <i class="fa fa-times-circle pf-iframe-close" onclick="payfortFortMerchantPage.closePopup()"></i>
+        </span>
+        <i class="fa fa-spinner fa-spin pf-iframe-spin"></i>
+        <div class="pf-iframe" id="pf_iframe_content"></div>
+    </div>
+</div>
+<form name="payfort_payment_form" id="payfort_payment_form" method="post" action="<?php echo $gatewayUrl; ?>" style="display:none">
+    <!-- general parameters -->
+    <?php foreach ($gatewayParams as $k => $v): ?>
+        <input type="hidden" name="<?php echo $k ?>" value="<?php echo $v ?>">
+    <?php endforeach; ?>
+</form>
+<input type="hidden" id="payfort_cancel_url" value="<?php echo Mage::getUrl('payfort/payment/merchantPageCancel')?>"/>
+<script type="text/javascript">
+    payfortFortMerchantPage.showMerchantPage('<?php echo $gatewayUrl?>');
+</script>
+

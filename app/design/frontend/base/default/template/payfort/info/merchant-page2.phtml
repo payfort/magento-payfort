@@ -1,0 +1,13 @@
+<?php
+    $_helper = Mage::helper('payfort/data');
+    /* @var Payfort_Pay_Block_Info_Cc_Notsaved $this */
+    $_info = $this->getInfo();
+    /* @var Mage_Sales_Model_Order_Payment $_info */
+
+?>
+<div class="cards-list">
+
+<?php if (!$this->getHideTitle()): ?>
+    <div class="bold"><?php echo $this->htmlEscape($this->getMethod()->getTitle()) ?></div>
+<?php endif;?>
+</div>

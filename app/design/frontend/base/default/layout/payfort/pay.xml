@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout>    
+    <checkout_onepage_review translate="label">
+        <reference name="checkout.onepage.review.info.items.after">
+            <block type="core/template" name="payfort.setting" template="payfort/checkout/onepage/merchant-page.phtml"/>
+        </reference>
+        <reference name="checkout.onepage.review.button">
+            <!--<block type="core/template" name="checkout.onepage.review.button" as="button" template="payfort/checkout/onepage/review/button.phtml"/>-->
+            <action method="setTemplate">
+                <template helper="payfort/data/getReviewButtonTemplate">
+                    <name>payfort/checkout/onepage/review/button.phtml</name>
+                    <block>checkout.onepage.review.button</block>
+                </template>
+            </action>
+        </reference>
+    </checkout_onepage_review>
+</layout>

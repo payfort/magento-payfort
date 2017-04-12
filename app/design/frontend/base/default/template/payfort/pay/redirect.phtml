@@ -1,0 +1,45 @@
+<?php
+// Retrieve order
+$gatewayParams = $this->getData('gatewayParams');
+$gatewayUrl    = $this->getData('gatewayUrl');
+?>
+<div class="center wrapper">
+    <div id="logo" class="center"></div>
+    <p class="center title"><?php echo $this->__('Redirecting to Payfort ...') ?></p>
+    <form name="payfortpaymentform" id="payfortpaymentform" method="post" action="<?php echo $gatewayUrl; ?>">
+        <!-- general parameters -->
+        <?php foreach ($gatewayParams as $k => $v): ?>
+            <input type="hidden" name="<?php echo $k ?>" value="<?php echo $v ?>">
+        <?php endforeach; ?>
+        <input type="submit" value="" id="submit2" name="submit2">
+    </form>
+</div>
+<script type="text/javascript">
+    (function () {
+        setTimeout(function () {
+            document.payfortpaymentform.submit();
+        }, 5000);
+    })();
+</script>
+<style type="text/css">
+    #payfortpaymentform {
+        display:none;
+    }
+    .center {
+        width: 50%;
+        margin: 0 auto;
+    }
+    #logo {
+        background:url(<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN) . 'frontend/base/default/images/payfort/payfort_logo.png' ?>);
+        width: 123px;
+        height: 44px;
+        margin-top:50px;
+
+    }
+    .title {
+        text-align: center;
+        margin-top:50px;
+    }
+</style>
+
+

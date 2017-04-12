@@ -1,0 +1,52 @@
+<?php
+$pfHelper = Mage::helper("payfort/data");
+?>
+<button type="submit" title="<?php echo 'place payfort order' ?>" class="button btn-checkout opc-btn-checkout" id="button-confirm" onclick="review.save()"><span><span><?php echo $this->__('Place Order') ?></span></span></button>
+<form style="display:none" name="payfort_payment_form" id="payfort_payment_form" method="post">
+</form>
+<input type="hidden" id="payfort_cancel_url" value="<?php echo Mage::getUrl('payfort/payment/merchantPageCancel')?>"/>
+<script type="text/javascript">
+//<![CDATA[
+Review.prototype.save = function() {
+    if (checkout.loadWaiting!=false) return;
+    checkout.setLoadWaiting('review');
+    var params = Form.serialize(payment.form);
+    var paymentMethod = payment.currentMethod;
+    params.save = true;
+    var request = new Ajax.Request(
+        this.saveUrl,
+        {
+            method:'post',
+            parameters:params,
+            onComplete: function(transport) {
+                if (transport && transport.responseText) {
+                    try{
+                        response = eval('(' + transport.responseText + ')');
+                    }
+                    catch (e) {
+                        response = {};
+                    }
+                    if (response.error_messages) {
+                        checkout.setLoadWaiting(false);
+                    }
+                }
+            },
+            onSuccess: function(response){
+                checkout.setLoadWaiting(false);
+                //get iframe params
+                <?php if($pfHelper->isMerchantPageMethod2()): ?>
+                    payfortFortMerchantPage2.submitMerchantPage(paymentMethod, '<?php echo Mage::getUrl('payfort/payment/getMerchantPageData');?>');
+                <?php else: ?>
+                    payfortFortMerchantPage.submitMerchantPage('<?php echo Mage::getUrl('payfort/payment/getMerchantPageData');?>');
+                <?php endif; ?>
+                return;
+                //this.onSave;
+            },
+            onFailure: checkout.ajaxFailure.bind(checkout)
+        }
+    );
+}
+//]]>
+</script>
+
+
