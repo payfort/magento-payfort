@@ -60,6 +60,6 @@
     <?php endif; ?>
 </ul>
 <script type="text/javascript">
-    payfortFort.BASE_URL = "<?php echo Mage::getBaseUrl(); ?>";
+    payfortFort.BASE_URL = "<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK, true); ?>";
     payfortFort.integrationType = "merchantPage2";
 </script>
