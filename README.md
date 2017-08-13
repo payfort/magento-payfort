@@ -45,7 +45,7 @@ Note: please make sure the dir [Magento1 root folder]/var/connect is writable.
 
 `v1.2.1`
 
-- The plugin now is working for IWD One Page Checkout [https://www.iwdagency.com/extensions/one-step-page-checkout.html](https://www.iwdagency.com/extensions/one-step-page-checkout.html).
+- The plugin now is working for IWD v 4.2.2 One Page Checkout [https://github.com/kirchbergerknorr/iwd_opc](https://github.com/kirchbergerknorr/iwd_opc).
 
 
 `v1.2.0`
