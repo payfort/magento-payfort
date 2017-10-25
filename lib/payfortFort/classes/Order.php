@@ -64,7 +64,7 @@ class Payfort_Fort_Order
 
     public function getCurrencyValue()
     {
-        return 1;//$this->order->getOrderCurrency()->getRate();
+        return 1;
     }
 
     public function getTotal()

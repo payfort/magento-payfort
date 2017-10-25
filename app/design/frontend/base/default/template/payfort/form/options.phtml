@@ -1,7 +1,8 @@
 <?php 
-    $sadadEnabled   = Mage::getStoreConfig('payment/payfort/sadad');
-    $napsEnabled    = Mage::getStoreConfig('payment/payfort/naps');
-    $cardEnabled    = Mage::getStoreConfig('payment/payfort/credit_card');
+    $sadadEnabled           = Mage::getStoreConfig('payment/payfort/sadad');
+    $napsEnabled            = Mage::getStoreConfig('payment/payfort/naps');
+    $cardEnabled            = Mage::getStoreConfig('payment/payfort/credit_card');
+    $installmentsEnabled    = Mage::getStoreConfig('payment/payfort/installments');
 ?>
 
 <?php if ($sadadEnabled || $napsEnabled):?>
@@ -20,7 +21,15 @@
     </dt>
     <?php endif;?>
 <?php endif;?>
+    
 
+<?php if ($installmentsEnabled):?>
+    <dt>
+    <input id="p_method_installments" value="payfort" type="radio" name="payment[method]" title="installments" onclick="jQuery.ajax({url:'<?php echo Mage::getBaseUrl();?>payfort/payment/setOption/?payfort_option=installments'});" class="radio" autocomplete="off">
+    <label onclick="jQuery(this).prev().click();" for=""><?php echo Mage::getStoreConfig('payment/payfort/installments_title')?></label>
+    </dt>
+    <?php endif;?>
+    
 <script>
     //<![CDATA[
     jQuery(document).ready(function(){

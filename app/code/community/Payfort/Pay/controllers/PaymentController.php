@@ -57,7 +57,10 @@ class Payfort_Pay_PaymentController extends Mage_Core_Controller_Front_Action
         
         if($paymentMethod == PAYFORT_FORT_PAYMENT_METHOD_CC) {
             $this->integrationType = $this->pfConfig->getCcIntegrationType();
-        }
+        } elseif($paymentMethod == PAYFORT_FORT_PAYMENT_METHOD_INSTALLMENTS){
+            $this->integrationType = $this->pfConfig->getInstallmentsIntegrationType();
+        } 
+        
         $gatewayParams = $this->pfPayment->getPaymentRequestParams($paymentMethod, $this->integrationType);
         //Creating a new block
         $template = '';
@@ -106,7 +109,6 @@ class Payfort_Pay_PaymentController extends Mage_Core_Controller_Front_Action
         else {
             $redirectUrl = 'checkout/cart';
         }
-        
         if ($this->integrationType == PAYFORT_FORT_INTEGRATION_TYPE_MERCAHNT_PAGE) {
             echo '<script>window.top.location.href = "' . Mage::getUrl($redirectUrl) . '"</script>';
             exit;

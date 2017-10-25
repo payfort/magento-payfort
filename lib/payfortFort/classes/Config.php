@@ -6,6 +6,7 @@ define('PAYFORT_FORT_INTEGRATION_TYPE_MERCAHNT_PAGE2', 'merchantPage2');
 define('PAYFORT_FORT_PAYMENT_METHOD_CC', 'payfortcc');
 define('PAYFORT_FORT_PAYMENT_METHOD_NAPS', 'payfortnaps');
 define('PAYFORT_FORT_PAYMENT_METHOD_SADAD', 'payfortsadad');
+define('PAYFORT_FORT_PAYMENT_METHOD_INSTALLMENTS', 'payfortinstallments');
 define('PAYFORT_FORT_FLASH_MSG_ERROR', 'E');
 define('PAYFORT_FORT_FLASH_MSG_SUCCESS', 'S');
 define('PAYFORT_FORT_FLASH_MSG_INFO', 'I');
@@ -41,6 +42,11 @@ class Payfort_Fort_Config
     private $gatewayProdHost;
     private $gatewaySandboxHost;
     private $logFileDir;
+    // installments
+    private $installmentsStatus;
+    private $installmentsOrder;
+    private $installmentsTitle;
+    private $installmentsIntgType;
 
     public function __construct()
     {
@@ -58,7 +64,6 @@ class Payfort_Fort_Config
         $this->sandboxMode          = $this->_getShoppingCartConfig('payfort/sandbox_mode');
         $this->gatewayCurrency      = $this->_getShoppingCartConfig('payfort/gateway_currency');
         $this->debugMode            = $this->_getShoppingCartConfig('payfort/debug_mode');
-        //$this->hostUrl = $this->_getShoppingCartConfig('hostUrl');
         $this->successOrderStatusId = Mage_Sales_Model_Order::STATE_PROCESSING;
         $this->status               = 1;
         $this->ccStatus             = $this->_getShoppingCartConfig('payfortcc/active');
@@ -71,6 +76,11 @@ class Payfort_Fort_Config
         $this->napsStatus           = $this->_getShoppingCartConfig('payfortnaps/active');
         $this->napsTitle            = $this->_getShoppingCartConfig('payfortnaps/title');
         $this->napsSortOrder        = $this->_getShoppingCartConfig('payfortnaps/sort_order');
+        // installments
+        $this->installmentsStatus   = $this->_getShoppingCartConfig('payfortinstallments/active');
+        $this->installmentsOrder    = $this->_getShoppingCartConfig('payfortinstallments/sort_order');
+        $this->installmentsTitle    = $this->_getShoppingCartConfig('payfortinstallments/title');
+        $this->installmentsIntgType = $this->_getShoppingCartConfig('payfortinstallments/integration_type');
     }
 
     /**
@@ -213,6 +223,11 @@ class Payfort_Fort_Config
     {
         return $this->ccIntegrationType;
     }
+    
+    public function getInstallmentsIntegrationType()
+    {
+        return $this->installmentsIntgType;
+    }
 
     public function isCcMerchantPage()
     {
@@ -290,6 +305,12 @@ class Payfort_Fort_Config
     {
         return $this->logFileDir;
     }
+    
+    public function getInstallmentsStatus() 
+    {
+        return $this->installmentsStatus;
+    }
+    
 
 }
 
