@@ -133,6 +133,17 @@
                 <title>Credit / Debit Card</title>
                 <integration_type>redirection</integration_type>
             </payfortcc>
+            
+            
+            <payfortinstallments>
+                <active>0</active>
+                <model>payfort/payment_installments</model>
+                <order_status>1</order_status>
+                <allowspecific>0</allowspecific>
+                <title>Installments</title>
+            </payfortinstallments>
+            
+            
             <payfortsadad>
                 <active>0</active>
                 <model>payfort/payment_sadad</model>
