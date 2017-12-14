@@ -10,9 +10,13 @@ This extension is customizable as you can configure it to meet your needs.
 ## Install
 
 
-Using FTP, upload entire contetn from inside upload folder to the root of your opencart store.
+1. To Install plugin please open your administration panel and go to System → Magento Connect → Magento Connect Manager.
+
+2. Click on Browse... Button then choose FORT_Payment_Gateway-X.X.X.tgz Then Click upload.
 
 Note: please make sure the dir [Magento1 root folder]/var/connect is writable.
+
+or you can upload to the root of your magento store.
 
 
 ## Upgrade
@@ -45,7 +49,7 @@ Note: please make sure the dir [Magento1 root folder]/var/connect is writable.
 
 `v1.2.1`
 
-- The plugin now is working for IWD V4.2.2 One Page Checkout [https://github.com/kirchbergerknorr/iwd_opc](https://github.com/kirchbergerknorr/iwd_opc).
+- The plugin now is working for IWD One Page Checkout [https://www.iwdagency.com/extensions/one-step-page-checkout.html](https://www.iwdagency.com/extensions/one-step-page-checkout.html).
 
 
 `v1.2.0`
