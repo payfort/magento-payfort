@@ -9,21 +9,12 @@ This extension is customizable as you can configure it to meet your needs.
 
 ## Install
 
-
-1. To Install plugin please open your administration panel and go to System → Magento Connect → Magento Connect Manager.
-
-2. Click on Browse... Button then choose FORT_Payment_Gateway-X.X.X.tgz Then Click upload.
-
-Note: please make sure the dir [Magento1 root folder]/var/connect is writable.
-
-or you can upload to the root of your magento store.
+download the plugin then upload it to the root of your magento store.
 
 
 ## Upgrade
 
-1. Open your administration panel and go to System → Magento Connect → Magento Connect Manager. 
-
-2. uninstall FORT_Payment_Gateway
+1. uninstall FORT_Payment_Gateway
 
 3. Reinstall the new FORT_Payment_Gateway plugin.
 
