@@ -9,14 +9,19 @@ This extension is customizable as you can configure it to meet your needs.
 
 ## Install
 
-download the plugin then upload it to the root of your magento store.
+1) Download magento-payfort-master plugin as a zip file.
+2) Open magento-payfort-master folder and copy all folders inside it .
+3) Paste the folders you copied to the root of your Magento project.
+4) Open your magento admin panel , select System -> configuration.
+5) Under Sales tab select payment methods.
+6) Select Payfort Global Configuration and fill your configuration data.
 
 
 ## Upgrade
 
 1. uninstall FORT_Payment_Gateway
 
-3. Reinstall the new FORT_Payment_Gateway plugin.
+3. Reinstall the new FORT_Payment_Gateway plugin using the Install steps .
 
 
 ## Changelog
