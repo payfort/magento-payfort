@@ -120,6 +120,6 @@ class Payfort_Pay_Helper_Data extends Mage_Core_Helper_Abstract
     }
     
     public function getCcTypes() {
-        return 'VI,MC';
+        return 'VI,MC,OT';
     }
 }
