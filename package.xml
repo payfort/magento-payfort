@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>FORT_Payment_Gateway</name>
-    <version>1.2.4</version>
+    <version>1.2.5</version>
     <stability>stable</stability>
     <license>MIT</license>
     <channel>community</channel>
