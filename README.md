@@ -26,6 +26,9 @@ This extension is customizable as you can configure it to meet your needs.
 
 ## Changelog
 
+`v1.2.5`
+- Fix signature mismatch on some specific amounts when purchasing.
+
 `v1.2.4`
 
 - Fix some bugs
