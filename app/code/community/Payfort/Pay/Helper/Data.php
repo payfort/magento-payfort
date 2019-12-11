@@ -5,9 +5,13 @@ require_once( Mage::getBaseDir('lib') . '/payfortFort/init.php');
 class Payfort_Pay_Helper_Data extends Mage_Core_Helper_Abstract
 {
     public $pfConfig;
+    public $pfHelper;
+    
     public function __construct()
     {
         $this->pfConfig = Payfort_Fort_Config::getInstance();
+        $this->pfHelper = Payfort_Fort_Helper::getInstance();
+        
     }
     public function deleteAllCartItems()
     {
@@ -120,6 +124,17 @@ class Payfort_Pay_Helper_Data extends Mage_Core_Helper_Abstract
     }
     
     public function getCcTypes() {
-        return 'VI,MC,OT';
+        $madaBranding = $this->pfConfig->getCcMadaBranding();
+        $frontCurrency = $this->pfHelper->getFrontCurrency();
+        $baseCurrency  = $this->pfHelper->getBaseCurrency();
+        $currency      = $this->pfHelper->getFortCurrency($baseCurrency, $frontCurrency);
+        
+        
+        
+        if ($madaBranding=='Enabled' && $currency=='SAR') {
+            return 'VI,MC,OT,MA';
+        }
+        else
+            return 'VI,MC,OT';
     }
 }

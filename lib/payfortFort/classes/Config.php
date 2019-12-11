@@ -70,6 +70,7 @@ class Payfort_Fort_Config
         $this->ccSortOrder          = $this->_getShoppingCartConfig('payfortcc/sort_order');
         $this->ccTitle              = $this->_getShoppingCartConfig('payfortcc/tilte');
         $this->ccIntegrationType    = $this->_getShoppingCartConfig('payfortcc/integration_type');
+        $this->ccMadaBranding       = $this->_getShoppingCartConfig('payfortcc/mada_branding');
         $this->sadadStatus          = $this->_getShoppingCartConfig('payfortsadad/active');
         $this->sadadTitle           = $this->_getShoppingCartConfig('payfortsadad/title');
         $this->sadadSortOrder       = $this->_getShoppingCartConfig('payfortsadad/sort_order');
@@ -218,7 +219,12 @@ class Payfort_Fort_Config
     {
         return $this->ccSortOrder;
     }
-
+    
+    public function getCcMadaBranding()
+    {
+        return $this->ccMadaBranding;
+    }
+    
     public function getCcIntegrationType()
     {
         return $this->ccIntegrationType;

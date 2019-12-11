@@ -10,7 +10,7 @@
     <li>
         <label for="<?php echo $_code ?>_cc_type" class="required"><em>*</em><?php echo $this->__('Credit Card Type') ?></label>
         <div class="input-box">
-            <select id="<?php echo $_code ?>_cc_type" name="" class="required-entry validate-cc-type-select">
+            <select id="<?php echo $_code ?>_cc_type" name="" >
                 <option value=""><?php echo $this->__('--Please Select--')?></option>
             <?php $_ccType = $this->getInfoData('cc_type') ?>
             <?php foreach ($this->getCcAvailableTypes() as $_typeCode => $_typeName): ?>
@@ -22,7 +22,7 @@
     <li>
         <label for="<?php echo $_code ?>_cc_number" class="required"><em>*</em><?php echo $this->__('Credit Card Number') ?></label>
         <div class="input-box">
-            <input type="text" id="<?php echo $_code ?>_cc_number" name="" title="<?php echo Mage::helper('core')->jsQuoteEscape($this->__('Credit Card Number')) ?>" class="input-text validate-cc-number validate-cc-type" value="" maxlength="19" />
+            <input type="text" id="<?php echo $_code ?>_cc_number" name="" title="<?php echo Mage::helper('core')->jsQuoteEscape($this->__('Credit Card Number')) ?>"  value="" maxlength="19" />
         </div>
     </li>
     <li id="<?php echo $_code ?>_cc_type_exp_div">
@@ -52,7 +52,7 @@
         <label for="<?php echo $_code ?>_cc_cid" class="required"><em>*</em><?php echo $this->__('Card Verification Number') ?></label>
         <div class="input-box">
             <div class="v-fix">
-                <input type="text" title="<?php echo Mage::helper('core')->jsQuoteEscape($this->__('Card Verification Number')) ?>" class="input-text cvv required-entry validate-cc-cvn" id="<?php echo $_code ?>_cc_cid" name="" value="" maxlength="4"/>
+                <input type="text" title="<?php echo Mage::helper('core')->jsQuoteEscape($this->__('Card Verification Number')) ?>"  id="<?php echo $_code ?>_cc_cid" name="" value="" maxlength="4"/>
             </div>
             <a href="#" class="cvv-what-is-this"><?php echo $this->__('What is this?') ?></a>
         </div>
