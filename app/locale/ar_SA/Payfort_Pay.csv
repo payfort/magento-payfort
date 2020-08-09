@@ -6,6 +6,8 @@
 "SHA-1","SHA-1"
 "SHA-256","SHA-256"
 "SHA-512","SHA-512"
+"HMAC-512","HMAC-512"
+"HMAC-256","HMAC-256"
 "Invalid response signature.","Invalid response signature."
 "Redirecting, please wait...","Redirecting, please wait..."
 "Your payment is accepted.","Your payment is accepted."
