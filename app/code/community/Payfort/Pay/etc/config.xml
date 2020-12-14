@@ -201,4 +201,20 @@
             </modules>
         </translate>
     </adminhtml>
+    
+    <global>
+        <payment>
+            <cc>
+                <types>
+                    <MA>
+                        <code>MA</code>
+                        <name>Mada BankCard</name>
+                        <order>5</order>
+                    </MA>
+				</types>
+		     </cc>
+		</payment>
+    </global>
+                    
+    
 </config>
